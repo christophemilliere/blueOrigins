@@ -1,0 +1,5 @@
+= form_for Reservation.new, html: {class: 'form-inline', role: 'form'} do |f|
+  = f.hidden_field :teleporter_id, value: teleporter.id
+  .form-group
+    = f.text_field :name, placeholder: 'Name', class: 'form-control'
+  = f.submit "Réservation", class: 'form-control btn btn-outline-primary'

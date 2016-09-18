@@ -1,0 +1,28 @@
+.row.teleporter
+  .row
+    .col-md-12
+      %h3= teleporter.destination.full_desination
+      %p= "Il reste #{teleporter.remaining_seats} place(s)"
+
+  .row
+    .col-md-12
+      - if teleporter.departure_available?
+        = render partial: 'form', locals: {teleporter: teleporter}
+      - else
+        .alert.alert-danger
+          Vous devez attendre qu'une place se libère
+      %table.table
+        %thead
+          %tr
+            %th Nom du passager
+            %th Heure du départ
+            %th Vous pourriez utiliser le téléporteur dans
+            %th Annuler la réservation
+        %tbody
+          - teleporter.reservations.each do |d|
+            %tr
+              %td= d.name
+              %td= d.created_at.strftime('%m/%e/%y à %H:%M')
+              %td= "#{d.remaining} min"
+              %td= link_to 'Annuler', reservation_path(d), method: :delete, class: 'btn btn-outline-danger'
+%hr/

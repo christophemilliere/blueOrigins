@@ -1,0 +1,14 @@
+.row
+  .col-md-12
+    %p.lead.center
+      Bienvenue Dans la réservation express.
+  .col-md-12
+    %h2 reservation
+    - if notice
+      .alert.alert-success
+        = notice
+    - if alert
+      .alert.alert-danger
+        = alert
+    - @teleporters.each do |teleporter|
+      = render partial: 'teleporter', locals: {teleporter: teleporter}

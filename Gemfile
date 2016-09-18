@@ -26,6 +26,10 @@ gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'bootstrap', '~> 4.0.0.alpha4'
 gem 'annotate'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -38,6 +42,13 @@ gem 'annotate'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'shoulda-matchers', require: false # https://github.com/thoughtbot/shoulda-matchers
+  gem 'database_cleaner' # https://github.com/DatabaseCleaner/database_cleaner
 end
 
 group :development do

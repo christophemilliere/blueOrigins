@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+l1  = Destination.create!(departure: 'Paris', arrival: 'Los angeles')
+l2  = Destination.create!(departure: 'Londres', arrival: 'Berlin')
+l3  = Destination.create!(departure: 'Bruges', arrival: 'Marseille')
+locations = [l1, l2, l3]
+
+locations.each do |l|
+  Teleporter.create!(destination: l)
+end
